@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Facial Expression AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header class="page-header">
+        <div>
+            <p class="eyebrow">REAL-TIME VISION</p>
+            <h1>Expression Studio <span class="title-emoji" aria-hidden="true">🎭</span></h1>
+            <p class="subtitle">Facial expression recognition</p>
+        </div>
+        <span id="modelStatus" class="model-status" role="status">Checking model</span>
+    </header>
+
+    <section class="card camera-card">
+        <div class="section-heading">
+            <h2>Live Camera <span class="heading-emoji" aria-hidden="true">📷</span></h2>
+            <span id="cameraState">Connecting...</span>
+        </div>
+        <div class="video-stage">
+            <img class="video" src="/video_feed" alt="Live camera">
+            <div id="expressionEffects" class="expression-effects" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <div class="grid">
+        <section class="card">
+            <h2>Live Detection <span class="heading-emoji" aria-hidden="true">✨</span></h2>
+            <p id="expression" aria-live="polite">Expression: Waiting</p>
+            <p id="confidence">Confidence: 0%</p>
+            <p id="faces">Faces detected: 0</p>
+            <p id="modelHint" class="model-hint" hidden>
+                Face detection is on. Add a trained model to enable automatic expression labels and emoji effects.
+            </p>
+            <div class="emoji-key" aria-label="Expression emoji reference">
+                <p class="emoji-key-title">Expression emoji key</p>
+                <div class="emoji-key-items">
+                    <span class="emoji-key-item"><span>😠</span>Angry</span>
+                    <span class="emoji-key-item"><span>🤢</span>Disgust</span>
+                    <span class="emoji-key-item"><span>😨</span>Fear</span>
+                    <span class="emoji-key-item"><span>😄</span>Happy</span>
+                    <span class="emoji-key-item"><span>😢</span>Sad</span>
+                    <span class="emoji-key-item"><span>😮</span>Surprise</span>
+                    <span class="emoji-key-item"><span>😐</span>Neutral</span>
+                    <span class="emoji-key-item"><span>😒</span>Contempt</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Image Processing Pipeline <span class="heading-emoji" aria-hidden="true">🧩</span></h2>
+            <ol>
+                <li>YuNet face detection</li>
+                <li>Face cropping</li>
+                <li>Grayscale conversion</li>
+                <li>Resize to 64 x 64</li>
+                <li>FER+ expression scores</li>
+                <li>Emoji overlay per face</li>
+            </ol>
+        </section>
+    </div>
+
+    <aside class="note">
+        This system classifies visible facial expressions. It does not reliably
+        determine a person's internal emotional state.
+    </aside>
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

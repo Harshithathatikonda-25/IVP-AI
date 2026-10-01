@@ -1,0 +1,5 @@
+The app uses these pretrained ONNX models:
+- emotion-ferplus-8.onnx: FER+ expression classifier
+- face_detection_yunet_2023mar.onnx: YuNet face detector
+
+No custom Keras model is required for the default app.
